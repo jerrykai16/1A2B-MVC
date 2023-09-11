@@ -16,4 +16,5 @@ use App\Http\Controllers\BooksController;
 //Route::get('/', [BooksController::class, 'index'])->name('index');
 //Route::get('/books', [BooksController::class, 'index'])->name('index');
 Route::get('/', [BooksController::class, 'select_num'])->name('start');
-Route::get('/books', [BooksController::class, 'select_num'])->name('select_num');
+Route::get('/books/select_num', [BooksController::class, 'select_num'])->name('select_num');
+Route::get('/books/guess', [BooksController::class, 'guess'])->name('guess');

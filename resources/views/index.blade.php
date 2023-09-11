@@ -28,10 +28,11 @@
 <body>
     <h1>猜數字遊戲</h1>
     <div class="div">        
-        <form action="{{ route('select_num') }}" method="get" name="form1" id="form1">
+        <form action="{{ route('guess') }}" method="get" name="form1" id="form1">
             <br>
                 <label for="playerName">玩家名稱:</label>
-                <input name="name" type="text" required id="name" size="18" value="{{ $name }}"><p></p>       
+                <input name="name" type="text" required id="name" size="18" value="{{ $name }}">
+                <p></p>       
                 <label for="guessNum">請輸入數字:</label>
                 <input name="guess" type="text" autofocus required id="guess" size="20"><br><br>
                 <input type="submit" name="submit" id="submit" value="猜猜看"><br>
@@ -45,9 +46,9 @@
         </p>        
     </div>
     <div>
-        @foreach($unique_num as $num)
-        <img src="{{ asset('img/' . $num . '.png') }}" width="125px" height="200px">
-        @endforeach
+            @foreach(session('unique_num', []) as $num)
+            <img src="{{ asset('img/' . $num . '.png') }}" width="125px" height="200px">
+            @endforeach
     </div>
 </body>
 </html>
