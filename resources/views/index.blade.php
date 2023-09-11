@@ -26,21 +26,14 @@
     </style>
 </head>
 <body>
-    <?php
-        session_start();
-        if(!isset($_SESSION["player"]))
-            $player = $_SESSION["player"];
-        else
-            $player = "";            
-    ?> 
     <h1>猜數字遊戲</h1>
     <div class="div">        
-        <form action="guess.php" method="post" name="form1" id="form1">
+        <form action="{{ route('select_num') }}" method="get" name="form1" id="form1">
             <br>
                 <label for="playerName">玩家名稱:</label>
-                <input name="player" type="text" autofocus required id="player" size="18" value=<?php echo $player?>><p></p>       
+                <input name="name" type="text" required id="name" size="18" value="{{ $name }}"><p></p>       
                 <label for="guessNum">請輸入數字:</label>
-                <input name="guess" type="text" required id="guess" size="20"><br><br>
+                <input name="guess" type="text" autofocus required id="guess" size="20"><br><br>
                 <input type="submit" name="submit" id="submit" value="猜猜看"><br>
         </form>
         <p>
@@ -52,7 +45,9 @@
         </p>        
     </div>
     <div>
-        <iframe src="" frameborder="0" width="500" ></iframe>    
+        @foreach($unique_num as $num)
+        <img src="{{ asset('img/' . $num . '.png') }}" width="125px" height="200px">
+        @endforeach
     </div>
 </body>
 </html>

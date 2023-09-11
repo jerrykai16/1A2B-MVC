@@ -13,5 +13,7 @@ use App\Http\Controllers\BooksController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [BooksController::class, 'index'])->name('books.index');
-Route::get('/books', 'BooksController@index')->name('books.index');
+//Route::get('/', [BooksController::class, 'index'])->name('index');
+//Route::get('/books', [BooksController::class, 'index'])->name('index');
+Route::get('/', [BooksController::class, 'select_num'])->name('start');
+Route::get('/books', [BooksController::class, 'select_num'])->name('select_num');
