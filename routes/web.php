@@ -18,3 +18,6 @@ use App\Http\Controllers\BooksController;
 Route::get('/', [BooksController::class, 'select_num'])->name('start');
 Route::get('/books/select_num', [BooksController::class, 'select_num'])->name('select_num');
 Route::get('/books/guess', [BooksController::class, 'guess'])->name('guess');
+Route::get('/books/insert', [BooksController::class, 'insert'])->name('insert');
+Route::get('/books/show', [BooksController::class, 'show'])->name('show');
+Route::get('/books/clear', [BooksController::class, 'clear'])->name('clear');

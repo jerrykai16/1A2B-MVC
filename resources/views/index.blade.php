@@ -31,18 +31,18 @@
         <form action="{{ route('guess') }}" method="get" name="form1" id="form1">
             <br>
                 <label for="playerName">玩家名稱:</label>
-                <input name="name" type="text" required id="name" size="18" value="{{ $name }}">
+                <input name="name" type="text" id="name" size="18" value="{{ session('name') }}" required>
                 <p></p>       
                 <label for="guessNum">請輸入數字:</label>
-                <input name="guess" type="text" autofocus required id="guess" size="20"><br><br>
+                <input name="guess" type="text" id="guess" size="20" autofocus required><br><br>
                 <input type="submit" name="submit" id="submit" value="猜猜看"><br>
         </form>
         <p>
-            <iframe src="" frameborder="0" class="iframe"></iframe>
+            <iframe src="{{ route('show') }}" frameborder="0" class="iframe"></iframe>
         </p>
         <p class="sql">
             <a href="process_guesses.php">寫回資料庫</a>
-            <a href="clear.php">重新開始</a>
+            <a href="{{ route('clear') }}">重新開始</a>
         </p>        
     </div>
     <div>
