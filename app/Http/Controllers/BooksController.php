@@ -23,18 +23,21 @@ class BooksController extends Controller
         
         $A = 0;
         $B = 0;
-        for($i=0;$i<count($unique_num);$i++){            
-            for($j=0;$j<count($guess_num);$j++){
-                if($unique_num[$i] == $guess_num[$j] && $i == $j){
-                    $A++;
-                    break;
-                }                        
-                elseif($unique_num[$i] == $guess_num[$j]){
-                    $B++;
-                    break;
+
+        for($i=0;$i<count($unique_num);$i++){    
+            if($unique_num[$i] == $guess_num[$i]){
+                $A++;
+            }else{   
+                for($j=0;$j<count($guess_num);$j++){                     
+                    if($unique_num[$i] == $guess_num[$j]){
+                        $B++;
+                        break;
+                    }
                 }      
             }
         }
+
+
         $ans = $guess." ==> ".$A."A".$B."B" ;
               
         if(!session()->has('history')){           
@@ -42,7 +45,6 @@ class BooksController extends Controller
             session(['history' => $history]);
         }
         $history = session('history');
-
         if($history !== "")
             $history .= "、" .$ans;
         else
@@ -85,7 +87,6 @@ class BooksController extends Controller
     }
     public function clear(){
         session()->flush();
-        return view('index');
+        return redirect()->route('start');
     }
-
 }

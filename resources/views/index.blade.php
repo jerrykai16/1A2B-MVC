@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>numbers</title>
+    <title>1A2B</title>
     <style>
         body{
             text-align: center;
@@ -26,11 +26,11 @@
     </style>
 </head>
 <body>
-    <h1>猜數字遊戲</h1>
+    <h1>1A2B</h1>
     <div class="div">        
         <form action="{{ route('guess') }}" method="get" name="form1" id="form1">
             <br>
-                <label for="playerName">玩家名稱:</label>
+                <label for="Name">玩家名稱:</label>
                 <input name="name" type="text" id="name" size="18" value="{{ session('name') }}" required>
                 <p></p>       
                 <label for="guessNum">請輸入數字:</label>
@@ -45,7 +45,7 @@
             <a href="{{ route('clear') }}">重新開始</a>
         </p>        
     </div>
-    <div>
+    <div>           
             @foreach(session('unique_num', []) as $num)
             <img src="{{ asset('img/' . $num . '.png') }}" width="125px" height="200px">
             @endforeach
