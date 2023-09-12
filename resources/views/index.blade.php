@@ -41,7 +41,7 @@
             <iframe src="{{ route('show') }}" frameborder="0" class="iframe"></iframe>
         </p>
         <p class="sql">
-            <a href="process_guesses.php">寫回資料庫</a>
+            <a href="{{ route('insert') }}">寫回資料庫</a>
             <a href="{{ route('clear') }}">重新開始</a>
         </p>        
     </div>

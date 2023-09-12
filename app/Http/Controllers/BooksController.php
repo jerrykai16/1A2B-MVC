@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\guessHistory;
 use Illuminate\Http\Request;
 session_start();
 class BooksController extends Controller
@@ -63,7 +65,10 @@ class BooksController extends Controller
         echo $history;
     }
     public function insert(){
-
+        guessHistory::create([
+            'userID' => session('name'),
+            'history' => session('history'),
+        ]);
         return view("index");
     }
     public function select_num(){
